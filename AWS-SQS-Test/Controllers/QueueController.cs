@@ -28,7 +28,7 @@ public class QueueController : ControllerBase
     public async Task<IActionResult> Send([FromBody] QueueMessageRequest request)
     {
         if (IsInvalidQueueUrl(QueueUrl))
-            return StatusCode(500, "Set AWS_SQS_QUEUE_URL in .env to the full URL (e.g. ). If you use .env, run the app from the project folder or ensure .env is in the same folder as the .csproj.");
+            return StatusCode(500, "Set AWS_SQS_QUEUE_URL in .env to the full queue URL. If you use .env, run the app from the project folder or ensure .env is in the same folder as the .csproj.");
         if (string.IsNullOrWhiteSpace(request.Message))
             return BadRequest("Message cannot be empty.");
 
@@ -47,7 +47,7 @@ public class QueueController : ControllerBase
     public async Task<IActionResult> Receive()
     {
         if (IsInvalidQueueUrl(QueueUrl))
-            return StatusCode(500, "Set AWS_SQS_QUEUE_URL in .env to the full URL (e.g. ).");
+            return StatusCode(500, "Set AWS_SQS_QUEUE_URL in .env to the full queue URL.");
         try
         {
             var result = await _sqsClient.ReceiveMessageAsync(new ReceiveMessageRequest

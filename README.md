@@ -28,7 +28,7 @@ A small ASP.NET Core API to **send**, **receive**, and **purge** messages on an 
    AWS_ACCESS_KEY_ID=your-access-key-id
    AWS_SECRET_ACCESS_KEY=your-secret-access-key
    AWS_REGION=eu-north-1
-   AWS_SQS_QUEUE_URL=
+   AWS_SQS_QUEUE_URL=your-queue-url-here
    ```
    Get the queue URL from AWS Console → SQS → your queue. Do not commit `.env` (it is in `.gitignore`).
 
