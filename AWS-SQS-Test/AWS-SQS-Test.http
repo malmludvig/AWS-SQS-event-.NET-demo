@@ -1,0 +1,11 @@
+@AWS_SQS_Test_HostAddress = http://localhost:5036
+
+# Send a message to the SQS queue
+POST {{AWS_SQS_Test_HostAddress}}/api/queue/send
+Content-Type: application/json
+
+{
+  "message": "Hello from AWS-SQS-Test"
+}
+
+###
